@@ -1,4 +1,3 @@
-import 'package:estudos/cases/animacoes/animacoes_impricitas.dart';
 import 'package:estudos/cases/animacoes/animacoes_controladas.dart';
 import 'package:flutter/material.dart';
 
