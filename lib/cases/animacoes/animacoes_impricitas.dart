@@ -23,7 +23,7 @@ class _AnimacoesFlutterState extends State<AnimacoesFlutter> {
           child: AnimatedContainer(
               alignment: Alignment.center,
               curve: Curves.easeOut,
-              duration: Duration(milliseconds: 800),
+              duration: const Duration(milliseconds: 800),
               height: 80,
               width: isLoading ? 80 : 400,
               decoration: BoxDecoration(
