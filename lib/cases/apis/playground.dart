@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 void main() async {
-  var url = 'https://jsonplaceholder.typicode.com/todos';
+  var url = 'https://jsonplaceholder.typicode.com/todos/';
 
   final client = HttpClient();
   //request

@@ -1,4 +1,6 @@
 import 'package:estudos/cases/animacoes/animacoes_controladas.dart';
+import 'package:estudos/cases/animacoes/animacoes_impricitas.dart';
+import 'package:estudos/cases/imc/imc_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const AnimacoesControladas(),
+      home: const ImcView(),
     );
   }
 }
