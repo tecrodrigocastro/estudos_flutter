@@ -1,5 +1,7 @@
 import 'dart:math' as math;
 
+//regra de negocio
+//atributos do que precisa
 class ImcModel {
   double weigth;
   double heigth;
