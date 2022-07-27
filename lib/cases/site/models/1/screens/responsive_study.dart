@@ -17,55 +17,48 @@ class _ResposiveCaseState extends State<ResposiveCase> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeigth = MediaQuery.of(context).size.height;
-    return OrientationBuilder(
-      builder: (context, orientation) {
-        final isPortrait = orientation == Orientation.portrait;
-        return Scaffold(
-          appBar: AppBar(
-            title: const Text('Responsividade no flutter'),
-            actions: [
-              Text('$screenWidth'),
-            ],
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Responsividade no flutter'),
+      ),
+      //isMobile(context) ? Drawer(child: sidebar()) : null
+      drawer: isMobile(context) ? Drawer(child: sidebar()) : null,
+      body: Row(
+        children: [
+          AnimatedCrossFade(
+            firstChild:
+                Container(color: Colors.white, width: 300, child: sidebar()),
+            secondChild: SizedBox.shrink(),
+            crossFadeState: !isMobile(context)
+                ? CrossFadeState.showFirst
+                : CrossFadeState.showSecond,
+            duration: Duration(milliseconds: 600),
+            reverseDuration: Duration(milliseconds: 600),
           ),
-          //isMobile(context) ? Drawer(child: sidebar()) : null
-          drawer: isMobile(context) ? Drawer(child: sidebar()) : null,
-          body: Row(
-            children: [
-              AnimatedCrossFade(
-                firstChild: Container(
-                    color: Colors.white, width: 300, child: sidebar()),
-                secondChild: SizedBox.shrink(),
-                crossFadeState: !isMobile(context)
-                    ? CrossFadeState.showFirst
-                    : CrossFadeState.showSecond,
-                duration: Duration(milliseconds: 600),
-                reverseDuration: Duration(microseconds: 600),
-              ),
-              // if (!isMobile(context))
-              Expanded(
-                child: GridView.count(
-                  crossAxisCount: isDesktop(context) ? 3 : 2,
-                  children: List.generate(
-                    40,
-                    (index) => Card(
-                      color: Colors.deepPurple,
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text('Item $index'),
-                            Text('Largura: $screenWidth'),
-                          ],
-                        ),
-                      ),
+          // if (!isMobile(context))
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: isDesktop(context) ? 3 : 2,
+              children: List.generate(
+                40,
+                (index) => Card(
+                  color: Colors.deepPurple,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Item $index'),
+                        Text('Largura: $screenWidth'),
+                      ],
                     ),
                   ),
                 ),
               ),
-            ],
+            ),
           ),
-        );
-      },
+        ],
+      ),
     );
   }
 
