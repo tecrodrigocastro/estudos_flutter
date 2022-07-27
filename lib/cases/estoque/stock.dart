@@ -1,4 +1,5 @@
-import 'package:estudos/cases/images/home.dart';
+import 'package:estudos/cases/estoque/cad_product.dart';
+import 'package:estudos/cases/estoque/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -32,8 +33,7 @@ class AppModule extends Module {
         ChildRoute('/', child: (context, args) => const HomePage(), children: [
           ChildRoute('/home', child: (context, args) => MyWidget()),
           ChildRoute('/add_product',
-              child: (context, args) => const InternalPage(
-                  title: 'Cadastrar Produto', color: Colors.red)),
+              child: (context, args) => const CadProduct()),
           ChildRoute('/get_product',
               child: (context, args) => const InternalPage(
                   title: 'Listar Produto', color: Colors.amber)),
